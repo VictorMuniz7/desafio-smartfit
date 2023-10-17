@@ -5,40 +5,43 @@
   </div>
 
   <h4>Qual período quer treinar?</h4>
-  <div class="options">
+  <form class="options" [formGroup]="form">
     <div class="option">
       <div>
-        <input type="radio" name="hour" id="morning" value="morning">
+        <input type="radio" name="hour" id="morning" value="morning" formControlName="hour">
         <label for="morning"><span></span> Manhã</label>
       </div>
       <p>06:00 às 12:00</p>
     </div>
     <div class="option">
       <div>
-        <input type="radio" name="hour" id="afternoon" value="afternoon">
+        <input type="radio" name="hour" id="afternoon" value="afternoon" formControlName="hour">
         <label for="afternoon"><span></span> Tarde</label>
       </div>
       <p>12:01 às 18:00</p>
     </div>
     <div class="option">
       <div>
-        <input type="radio" name="hour" id="evening" value="evening">
+        <input type="radio" name="hour" id="evening" value="evening" formControlName="hour">
         <label for="evening"><span></span> Noite</label>
       </div>
       <p>18:01 às 23:00</p>
     </div>
-  </div>
-  <div class="checkbox">
-    <div>
-      <input type="checkbox" id="chk">
-      <label for="chk"><span></span> Exibir unidades fechadas</label>
+
+    <div class="checkbox">
+      <div>
+        <input type="checkbox" id="show-closed" formControlName="showClosed" [checked]="form.value.showClosed">
+        <label for="show-closed"><span></span> Exibir unidades fechadas</label>
+      </div>
+      <p>Resultados encontrados: <strong>{{ filteredResults.length }}</strong></p>
     </div>
-    <p>Resultados encontrados: <strong>0</strong></p>
-  </div>
+
+  </form>
 
   <div class="buttons">
-    <button class="button yellow-button">Encontrar unidade</button>
-    <button class="button">Limpar</button>
+    <button class="button yellow-button" (click)="onSubmit()">Encontrar unidade</button>
+    <button class="button" (click)="onClean ()">Limpar</button>
   </div>
 
 </div>
+
