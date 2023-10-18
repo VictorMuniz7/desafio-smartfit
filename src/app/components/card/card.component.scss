@@ -1,0 +1,99 @@
+
+.card{
+  width: 90vw;
+  height: 30em;
+  background-color: var(--lighter-grey);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: .8em;
+  box-shadow: 0 0 .6em #ccc;
+  padding: 1em;
+  gap: .8em;
+
+  h3{
+    font-size: 2em;
+    color: var(--dark-grey);
+  }
+
+  ul{
+    list-style: none;
+  }
+
+  p{
+    color: var(--light-grey);
+  }
+}
+
+.opened{
+  font-weight: 500;
+}
+
+#divider{
+  width: 100%;
+  height: 2px;
+  background-color: var(--soft-grey);
+  margin: .5em 0;
+}
+
+.icons{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  img{
+    width: 4.5em;
+  }
+}
+
+.schedules{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5em;
+  overflow: hidden;
+  margin-top: 1em;
+
+  li{
+    margin-right: 2em;
+  }
+
+  strong{
+    font-size: 1.5em;
+    color: var(--dark-grey);
+  }
+
+  p{
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (min-width: 37em) {
+
+  .card{
+    align-items: center;
+  }
+}
+
+
+@media screen and (min-width: 52em) {
+
+  .card{
+    align-items: flex-start;
+    width: 45vw;
+  }
+
+  .schedules{
+    gap: 2em;
+  }
+}
+
+@media screen and (min-width: 78em) {
+
+  .card{
+    width: 22.5vw;
+  }
+
+}

@@ -9,6 +9,9 @@ import { LegendComponent } from './components/legend/legend.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { CardsComponent } from './components/cards/cards.component'
+import { CommonModule } from '@angular/common';
+import { CardComponent } from './components/card/card.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { CardsComponent } from './components/cards/cards.component'
     HeaderComponent,
     FormComponent,
     LegendComponent,
-    CardsComponent
+    CardsComponent,
+    CardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

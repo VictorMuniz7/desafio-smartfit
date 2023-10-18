@@ -1,7 +1,8 @@
 <div class="back">
   <app-header></app-header>
-  <app-form></app-form>
-
-  <app-cards></app-cards>
+  <app-form (submitEvent)="onSubmit()"></app-form>
+  <app-legend></app-legend>
+  <app-cards *ngIf="showList | async" [unitsList]="unitsList"></app-cards>
+  <app-footer></app-footer>
 </div>
 

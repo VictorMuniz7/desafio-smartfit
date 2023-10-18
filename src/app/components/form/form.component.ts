@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Unit } from 'src/app/interfaces/unit';
 import { FilterService } from 'src/app/services/filter.service';
@@ -11,6 +11,8 @@ import { UnitsService } from 'src/app/services/units.service';
 })
 export class FormComponent implements OnInit{
 
+  @Output() submitEvent = new EventEmitter()
+
   unitsList: Unit[] = [];
   form!: FormGroup;
   filteredResults: Unit[] = [];
@@ -21,14 +23,11 @@ export class FormComponent implements OnInit{
     private filterService: FilterService
   ){}
 
-
-
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       hour: '',
       showClosed: true
     })
-
 
     this.unitsService.getUnits().subscribe(data => {
       this.unitsList = data;
@@ -37,17 +36,16 @@ export class FormComponent implements OnInit{
 
   }
 
-
-
   onSubmit(){
     let {showClosed, hour} = this.form.value
     this.filteredResults = this.filterService.filter(this.unitsList, showClosed, hour)
     this.unitsService.setFilteredUnits(this.filteredResults)
+
+    this.submitEvent.emit()
   }
 
   onClean(){
     this.form.reset()
   }
-
 
 }
